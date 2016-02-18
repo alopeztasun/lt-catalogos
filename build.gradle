@@ -21,6 +21,16 @@ apply plugin: 'com.github.ben-manes.versions'
 apply plugin: 'com.bluepapa32.watch'
 apply plugin: 'spring-boot'
 apply plugin: 'application'
+apply plugin: 'war'
+
+war {
+    baseName = 'myapp'
+    version =  '0.5.0'
+}
+
+configurations {
+    providedRuntime
+}
 
 repositories {
     jcenter()
@@ -31,6 +41,8 @@ dependencies {
     compile("org.springframework.boot:spring-boot-starter-web")
     compile("org.thymeleaf:thymeleaf-spring4")
     compile("nz.net.ultraq.thymeleaf:thymeleaf-layout-dialect")
+    compile("org.springframework.boot:spring-boot-starter-web")
+    providedRuntime("org.springframework.boot:spring-boot-starter-tomcat")
 }
 
 asciidoctor {
